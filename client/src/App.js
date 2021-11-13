@@ -9,7 +9,7 @@ import UpdateCharity from "./components/UpdateCharity";
 
 function App() {
 
-  const [ userName, setUserName] = useState("");
+  // const [ userName, setUserName] = useState("");
 
   return (
     <div className="App">
@@ -21,7 +21,7 @@ function App() {
           {/* <Profile path="/profile/:userId" userName = {userName} /> */}
           <AddCharity path="/charity/add" />
           <DisplayCharities path="/charities" /> 
-          <UpdateCharity path="/charity/update" />
+          <UpdateCharity path="/charity/update/:id" />
         </Router>
 
 

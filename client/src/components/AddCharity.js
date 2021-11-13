@@ -3,6 +3,7 @@ import axios from 'axios';
 import CharityForm from "../components/CharityForm";
 import {Link, navigate} from "@reach/router";
 import logo from "../components/logo.png";
+import Logout from './Logout';
 
 const AddCharity = (props) => {
     const [errors, setErrors] = useState({});
@@ -37,7 +38,7 @@ const AddCharity = (props) => {
             console.log(error);
             console.log(error.response.data.errors);
             if(error.response.status == 401){
-                navigate("/addcharity");
+                navigate("/");
             }
             if(error.response.data.errors){
                 setErrors(error.response.data.errors);
@@ -76,9 +77,6 @@ const AddCharity = (props) => {
                         {/* <img src={logo} alt="bigdifferences logo" /> */}
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
-                                <li className="nav-item active">
-                                    <a className="nav-link" href="/profile/${userId}">Profile</a>
-                                </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="/charity/add">Add Charity</a>
                                 </li>
@@ -86,14 +84,14 @@ const AddCharity = (props) => {
                                     <a className="nav-link" href="/charities">All Charities</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/" id="logout">Logout</a>
+                                    <Logout />
                                 </li>
                             </ul>
                         </div>
                     </nav>
                 </div>
                 <hr />
-            <h1>Add Charity</h1>
+            <h1 className="welcome">Add Charity</h1>
             <div className="header">
                 <p>The aim of this website is to provide help for the small charities around the world that need
                     even the smallest donation to make the biggest difference. We want to encourage people to feel

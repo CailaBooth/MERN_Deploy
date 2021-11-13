@@ -10,8 +10,8 @@ const LoginReg = (props) => {
         <div>
             <div>
 
-                <h1 className="header">Welcome To</h1>
-                <h1 className="header">Big Differences Small Charities</h1>
+                <h1 className="welcome">Welcome To</h1>
+                <h1 className="welcome">Big Differences Small Charities</h1>
                 <h3>Where Everybody Can Make a Difference</h3>
             </div>
             <div className="register">

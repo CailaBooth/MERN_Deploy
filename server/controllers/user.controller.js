@@ -6,6 +6,7 @@ module.exports = {
     register: (request, response) => {
         console.log("in register")
         console.log(request.body);
+
         const user = new User(request.body);
 
         user.save()
@@ -53,7 +54,7 @@ module.exports = {
                                 loggedInUser: logUser.userName,
                                 userId: logUser._id
                             })
-                            // do I need the extra { ? }
+
                             } else {
                                 response.status(400).json({message: "Invalid login Attempt. Try Again."})
                             }

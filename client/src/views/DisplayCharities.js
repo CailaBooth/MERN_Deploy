@@ -3,6 +3,7 @@ import {Link, navigate} from '@reach/router';
 import axios from 'axios';
 import logo from "../components/logo.png";
 import DeleteCharity from "../components/DeleteCharity"
+import Logout from '../components/Logout';
 
 const DisplayCharities = (props) => {
     const [ user, setUser ] = useState({});
@@ -29,16 +30,13 @@ const DisplayCharities = (props) => {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/profile/${userId}">Profile</a>
-                                </li>
-                                <li className="nav-item">
                                     <a className="nav-link" href="/charity/add">Add Charity</a>
                                 </li>
                                 <li className="nav-item active">
                                     <a className="nav-link" href="/charities">All Charities</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/" id="logout">Logout</a>
+                                    <Logout />
                                 </li>
                             </ul>
                         </div>
@@ -46,7 +44,7 @@ const DisplayCharities = (props) => {
                 </div>
             <hr />
             <div className="header">
-                <h1>All Small Charities Added So Far</h1>
+                <h1 className="welcome">All Small Charities Added So Far</h1>
 
                     <p>The aim of this website is to provide help for the small charities around the world that need
                         even the smallest donation to make the biggest difference. We want to encourage people to feel
@@ -86,7 +84,7 @@ const DisplayCharities = (props) => {
                                 </div>
                                 <div className="row">
                                     <h2 className="display">Charity Type</h2>
-                                    <h3 style={{color: "darkred"}}>{charity.charityType}</h3>
+                                    <h3 style={{color: "blue"}}>{charity.charityType}</h3>
                                 </div>
                                 <div className="row">
                                     
@@ -98,26 +96,35 @@ const DisplayCharities = (props) => {
                                         : null
                                     }
 
+
                                 </div>
                                 {
                                     charity.createdBy ?
                                     <div>
-                                        <span><Link to={`/profile/${charity.createdBy.userId}`}> 
+                                        <span><Link to={`/profile/${charity.createdBy._id}`}> 
 
                                             <p>Added By: {charity.createdBy.userName}</p></Link></span>
                                     </div>
                                     : null
                                 }
-                                {/* <button className="btn btn-danger" onClick={() => DeleteCharity(charity._id)}>Remove Charity</button> */}
+
                             </div>
-                            {
-                                charity.createdBy === charity.createdBy.userId ?
-                                <div>
+                            <div>
+                                {/* <UpdateCharity  id={charity._id}/> */}
+                                <button className="btn btn-link"><Link to={`/charity/update/${charity._id}`}>Update</Link></button>
+
                                 <DeleteCharity charityList={charityList} setCharityList={setCharityList} id={charity._id} /> 
-                                    
+                                
+                            </div>
+                            <br />
+                            {/* {
+                                charity.createdBy === charity.createdBy.UserName ?
+                                <div>
+
+                                <DeleteCharity charityList={charityList} setCharityList={setCharityList} id={charity._id} /> 
                                 </div>
                                 : null
-                            }
+                            } */}
 
                             <hr />
                         </div>

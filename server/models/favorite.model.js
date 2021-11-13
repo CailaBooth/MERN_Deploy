@@ -1,19 +1,19 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
-const CharitySchema = new mongoose.Schema({
-    charityName: {
+const favoriteSchema = mongoose.Schema({
+    favoriteName: {
         type: String,
         required: [true, "We Need a Name!"],
         minLength: [2, "Must be at least 2 charactesr long!"]
     },
 
-    charityWebsite: {
+    favoriteWebsite: {
         type: String,
         required: [true, "Show others the way!"]
 
     },
-    charityDonation: { type: Number, required: [true, "Make your best guess, can be as low as you want."]},
-    charityType: {
+    favoriteDonation: { type: Number, required: [true, "Make your best guess, can be as low as you want."]},
+    favoriteType: {
         type: String,
         required: [true, "Pick the main area the charity makes a difference in."],
         enum: [
@@ -29,18 +29,19 @@ const CharitySchema = new mongoose.Schema({
             "Other"
         ]
     },
-    favorite: {
-        type: Boolean
-    },
-    
+
     //the user that created
-    createdBy: {
+    userFavorite: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
+    },
+    favoriteCharity: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Charity"
     }
 
 }, {timestamps: true});
 
-const Charity = mongoose.model("Charity", CharitySchema);
+const Favorite = mongoose.model("Favorite", FavoriteSchema);
 
-module.exports = Charity;
+module.exports = Favorite;

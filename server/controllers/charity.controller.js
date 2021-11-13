@@ -10,7 +10,18 @@ module.exports = {
             .then((allCharities) => response.json(allCharities))
             .catch((error) => {console.log("find all charities went wrong"); response.status(400).json(error)})
     },
-
+    //all by user
+    getAllCharitiesByUser: (request, response)=>{
+        Charity.find({createdBy: request.params.id})
+        .then((allUserCharities)=>{
+            console.log(allUserCharities);
+            response.json(allUserCharities);
+        })
+        .catch((error)=>{
+            console.log(error);
+            response.status(400).json(error);
+        })
+    },
     //read one charity
     getOneCharity: (request, response) => {
         Charity.findOne({_id: request.params._id})

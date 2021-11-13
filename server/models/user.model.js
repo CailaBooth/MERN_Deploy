@@ -16,6 +16,13 @@ const UserSchema = new mongoose.Schema({
         minLength: [8, "What are you new? Password must be at least 8 Characters"]},
     interests: {
         type: String },
+    // userImage: {
+    //     type: String,
+    //     required: [true, "Please add a picture. Any picture"]
+    // }
+    // favoriteCharity: {
+    //     type: Boolean,
+    // }
     
 
 }, {timestamps: true});

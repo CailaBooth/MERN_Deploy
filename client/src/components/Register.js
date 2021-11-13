@@ -57,7 +57,7 @@ const Register = (props) => {
                     <label>UserName: </label>
                     {
                         regErrors.userName ?
-                        <p className="errorText">{ regErrors.userName.message }</p>
+                        <p style={{color: "red"}} className="errorText">{ regErrors.userName.message }</p>
                         : null
                     }
                     <input className="form-control-sm" type="text" name="userName" value={user.userName} onChange={(event) => regHandler(event)} />
@@ -67,7 +67,7 @@ const Register = (props) => {
                     <label>Email: </label>
                     {
                         regErrors.email ?
-                        <p className="errorText">{regErrors.email.message}</p>
+                        <p style={{color: "red"}} className="errorText">{regErrors.email.message}</p>
                         : null
                     }
                     <input className="form-control-sm" type="email" name="email" value={user.email} onChange={regHandler} />
@@ -77,7 +77,7 @@ const Register = (props) => {
                     <label>Password: </label>
                     {
                         regErrors.password ?
-                            <p className="errorText">{regErrors.password.message}</p>
+                            <p style={{color: "red"}} className="errorText">{regErrors.password.message}</p>
                             : null
                     }
                     <input className="form-control-sm" type="password" name="password" value={user.password} onChange={regHandler} />
@@ -87,7 +87,7 @@ const Register = (props) => {
                     <label>Confirm Password: </label>
                     {
                         regErrors.passwordConfirm ?
-                            <p className="errorText">{regErrors.passwordConfirm.message}</p>
+                            <p style={{color: "red"}} className="errorText">{regErrors.passwordConfirm.message}</p>
                             : null
                     }
                     <input className="form-control-sm" type="password" name="passwordConfirm" value={user.passwordConfirm} onChange={regHandler} />

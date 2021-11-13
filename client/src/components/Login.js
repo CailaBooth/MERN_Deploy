@@ -3,6 +3,7 @@ import axios from "axios";
 import {navigate} from "@reach/router";
 
 const Login = (props) =>{
+    const {id} = props;
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [logError, setLogError] = useState("");
@@ -17,8 +18,9 @@ const Login = (props) =>{
         .then((response)=> {
             console.log(response.cookie, "cookie");
             console.log(response.data);
-            localStorage.setItem("userId", response.data.userId);
-            navigate("/profile/${userId}");
+            // localStorage.setItem("userId", response.data.userId);
+            // navigate("/profile/" + props.userId);
+            navigate("/charities");
             // need to concat if using a changeable id state to hold getter. ids value
         })
         .catch(error => {
